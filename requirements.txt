@@ -1,0 +1,8 @@
+torch
+numpy
+POT
+pandas
+matplotlib
+scipy
+transformers
+tqdm
