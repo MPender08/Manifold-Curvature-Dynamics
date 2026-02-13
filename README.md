@@ -3,7 +3,6 @@
 
 ![syntactic_wall_final](syntactic_wall_final.png)
 
-This repository provides the computational framework and analysis tools for investigating Curvature Adaptation (CA) within high-dimensional transformer manifolds. This research models the Large Language Model (LLM) as a latent semantic manifold M and investigates how symbolic logical constraints act as actuators to reshape local topology.
 
 ## Overview
 
