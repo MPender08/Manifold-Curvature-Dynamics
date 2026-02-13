@@ -1,16 +1,12 @@
 ## The Discovery: "The Syntactic Wall"
 
-This repository contains the replication code for the paper Scale-Invariant Cognitive Dynamics.
+This repository contains the simulation framework and empirical data for Scale-Invariant Cognitive Dynamics, a study modeling the Human-AI inference dyad as a geometric system. By treating human prompting as an inhibitory gating mechanism (γ), we demonstrate that imposing logical constraints forces the Large Language Model's latent manifold to transition from a flat Euclidean state into a deep Hyperbolic Regime (κ<−4.0).
 
-We demonstrate that Large Language Models (specifically GPT-2) undergo a discrete topological phase transition when subjected to logical constraints. As a human operator increases the "Inhibitory Gating Density" (γ) of a prompt, the model's latent manifold is forced from a Euclidean state into a deep Hyperbolic Regime (κ≈−4.8).
-
-This creates a geometric trade-off we call the Syntactic Wall:
-
-    As logical rigor increases, the velocity of semantic traversal collapses.
+Our results identify a critical phase transition we term the "Syntactic Wall": a geometric barrier where high-velocity conceptual traversal becomes mutually exclusive with deep logical inference. This framework offers a formal geometric explanation for the necessity of Chain-of-Thought (CoT) prompting, suggesting that "slowing down" is not merely a heuristic, but a topological requirement for navigating negatively curved semantic spaces.
 
 ![syntactic_wall_controlled](syntactic_wall_controlled.png)
 
-(Figure 1: The "Syntactic Wall". Colored circles show the collapse of concept velocity as logical gating increases. Gray 'X' markers represent a randomized Null Model, confirming the effect is structural, not stochastic.)
+(Figure 1: The "Syntactic Wall". Colored circles show the collapse of concept velocity as logical gating increases. Gray 'X' markers represent a shuffled Null Model, confirming the effect is structural, not stochastic.)
 
 ## Theoretical Basis
 
@@ -23,22 +19,6 @@ This work connects biological dendrites to transformer topology. It is the empir
     Evidence: Scale-Invariant Cognitive Dynamics (Paper 2 - This Repo)
 
         Validation: Observes this exact signature in GPT-2's semantic manifold.
-
-## Reproduction
-
-The script run_dyad_test.py performs a full N-Expansion Study on the GPT-2 124M manifold.
-
-### What the Code Does:
-
-    Loads the Manifold: Extracts the embedding matrix WTE​ from gpt2.
-
-    N-Expansion: Generates 30 thematic gradients (from "Associative Poetic" to "First-Order Logic").
-
-    Null Model Generation: Creates randomized "Control" tokens of identical length to the deepest logical prompts.
-
-    Topology Calculation: Computes Discrete Ricci Curvature (κ) and Concept Velocity (Vc​) for all dyads.
-
-    Visualization: Plots the phase transition (The Syntactic Wall) and saves it as a PDF/PNG.
 
 ## Usage
 
