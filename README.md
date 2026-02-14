@@ -1,43 +1,41 @@
 # Logic as a Hyperbolic Actuator
 #### Evidence for Scale-Invariant Manifold Warping in Large Language Models
 
-![syntactic_wall_final](syntactic_wall_final.png)
-
+![manifold_corrected_results](manifold_corrected_results.png)
 
 ## Overview
 
-The core objective of this project is to characterize the geometric transitions that occur during hierarchical synthesis. By analyzing the latent states of transformer architectures (e.g., GPT-2), we identify a non-linear phase transition from near-Euclidean flatness into deep hyperbolic regimes. This transition facilitates Geodesic Efficiency, allowing the model to navigate dense logical hierarchies without a corresponding collapse in semantic throughput.
+This project characterizes the geometric transitions occurring within the transformer latent space during hierarchical synthesis. Utilizing a Local Pairwise Framework (mean step distance dˉxy​=0.0324), we identify a non-linear phase transition from near-Euclidean flatness into extreme hyperbolic regimes. This transition facilitates Geodesic Efficiency, allowing the model to navigate dense logical hierarchies without a collapse in semantic throughput.
 
 ## Core Discoveries
 
-  * Hyperbolic Transition: Quantitative mapping of discrete Ollivier-Ricci curvature (κ) shifting from baseline (≈−1.5) to deep hyperbolic states (≈−5.0) under increased logical density.
+- Hyperbolic Phase Transition: Quantitative mapping of discrete Ollivier-Ricci curvature (κ) shifting from a near-flat baseline (κ≈−1.5) to deep hyperbolic states (κ≈−95.0) as logical gating density increases.
 
-  * Geodesic Efficiency: Evidence of stable semantic velocity (r=−0.0138) despite increasing manifold curvature, refuting the "Syntactic Wall" hypothesis.
+- Geodesic Efficiency: Discovery of a stable, positively modulated velocity profile (r=0.5636). This refutes the "Syntactic Wall" hypothesis by demonstrating that hyperbolic warping serves as a structural optimization for informational transport.
 
-  * Structural Isomorphism: Establishing a functional link between biological inhibitory gating (SST-interneurons) and symbolic manifold modulation.
+- Topological Separation: Clear causal separation between logical semantic gradients and stochastic null models, identifying hierarchical logic as a specific actuator for manifold warping.
 
-## Usage
+- Structural Isomorphism: Establishes a functional link between biological inhibitory gating (SST-interneurons) and symbolic manifold modulation in artificial architectures.
 
-Download libraries.
+## Methodology
 
+Instead of global radial measurements which are prone to coordinate bias, this audit utilizes Incremental Concept Velocity (Vinc​) and local pairwise curvature. By measuring the geometric "torque" between adjacent logical states, we isolate the impact of hierarchical constraints on the manifold's intrinsic topology.
+
+## Installation & Usage
+
+Environment Setup:
 ```
 pip install torch numpy POT pandas matplotlib scipy transformers tqdm
 ```
-
-Run the plot generator.
-
+Generate Experimental Data:
 ```
 python generate_experiment_plots.py
 ```
 
 ## Research Applications
 
-This geometric framework offers new avenues for:
+- Mechanistic Interpretability: Visualizing how models "funnel" latent states into focused, high-curvature corridors during complex reasoning.
 
-  * Mechanistic Interpretability: Tracking how models "narrow" their focus during complex reasoning.
+- AI Safety & Hallucination Research: Identifying geometric precursors to logical failure, where the manifold fails to transition into a sufficiently deep hyperbolic state.
 
-  * Inference Optimization: Identifying the topological precursors to logical consistency or failure.
-
-  * AI Safety: Developing geometric metrics to detect "logical entrenchment" or unintended manifold warping.
-
-
+- Neuromorphic Engineering: Applying Curvature Adaptation (CA) principles to energy-efficient hardware design.
