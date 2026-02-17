@@ -1,7 +1,17 @@
 # Logic as a Hyperbolic Actuator
 #### Evidence for Scale-Invariant Manifold Warping in Large Language Models
 
-![manifold_corrected_results](manifold_corrected_results.png)
+### Note to Reader
+
+This work represents a preliminary conceptual exploration of high-dimensional semantics in Large Language Models. The biophysical and thermodynamic framework proposed here has since been formalized and validated in the author's subsequent work.
+
+For the definitive mathematical model and simulation data, please refer to:
+
+Dynamic Curvature Adaptation (The Biophysics): [https://doi.org/10.5281/zenodo.18664692](https://doi.org/10.5281/zenodo.18615180)
+
+The Metabolic Phase Transition (The Thermodynamics): [https://doi.org/10.5281/zenodo.18664692](https://doi.org/10.5281/zenodo.18664692)
+
+
 
 ## Overview
 
