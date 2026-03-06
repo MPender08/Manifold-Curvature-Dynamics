@@ -1,51 +1,60 @@
-# Logic as a Hyperbolic Actuator
-#### Evidence for Scale-Invariant Manifold Warping in Large Language Models
+# Logic as a Hyperbolic Actuator: Evidence for VIP-Mediated Phase Transitions in Transformer Attention Manifolds
 
-### Note to Reader
+This repository contains the official code implementation for the paper "Logic as a Hyperbolic Actuator." By evaluating the internal attention matrices of the GPT-2 transformer architecture as strictly directed causal graphs, this codebase provides empirical evidence for the Curvature Adaptation Hypothesis (CAH). It demonstrates that logical reasoning in LLMs is not simply advanced semantic pattern matching, but a computationally expensive macroscopic geometric phase transition.
 
-This work represents a preliminary conceptual exploration of high-dimensional semantics in Large Language Models. The biophysical and thermodynamic framework proposed here has since been formalized and validated in the author's subsequent work.
+Under default generative conditions, the model idles in a dense, highly suppressed Euclidean topology (κ≈50−70). The human operator’s logical prompt functions as a biological VIP interneuron override, disinhibiting the network and forcing specific induction heads to hollow out their geometry into sparse, low-latency hyperbolic tree structures (Δκ≈−45) to solve multi-hop constraints.
 
-For the definitive mathematical model and simulation data, please refer to:
+[https://doi.org/10.5281/zenodo.18627785](https://doi.org/10.5281/zenodo.18627785)
 
-Dynamic Curvature Adaptation (The Biophysics): [https://doi.org/10.5281/zenodo.18664692](https://doi.org/10.5281/zenodo.18615180)
+![Figure 1](fig_1.png)
+Figure 1: VIP-Mediated Phase Transitions in the Attention Manifold. Macroscopic discrete Forman-Ricci curvature (κ) measured across Layer 8 causal attention graphs. Under the unconstrained Euclidean baseline (blue dashed line), the network prioritizes dense, diffuse stochastic dispersion (κ ≈ 50 − 70). The application of a logical constraint (red solid line) triggers a violent phase transition in specific induction heads (4 and 5), which shed edges and collapse into sparse, hierarchical topologies (∆κ ≈ −45) to act as VIP overrides. Head 7 remains the foundational structural sink.
 
-The Metabolic Phase Transition (The Thermodynamics): [https://doi.org/10.5281/zenodo.18664692](https://doi.org/10.5281/zenodo.18664692)
+![Figure 2](fig_2.png)
+Figure 2: Topological Visualization of the VIP Override (Layer 8, Head 4) Causal attention graphs generated via Kamada-Kawai layout, minimizing structural distances (wdist = − log(p) + ϵ). (Left) Under the unconstrained Euclidean baseline, the semantic manifold maintains a dense, diffuse web of interconnected attention pathways (corresponding to highly positive curvature, κ ≈ 56). (Right) Under logical constraint, the head sheds its stochastic pathways, hollowing out the center of the manifold to form a sparse, highly-directed structural tree(κ ≈ 11). This geometric rewiring optimizes information transport across logical operators.
 
+## Repository Contents
 
+* `hyperbolic_scanner.py`: The primary experimental script. It evaluates the macroscopic discrete Forman-Ricci curvature of the attention manifold across Layer 8.
 
-## Overview
-
-This project characterizes the geometric transitions occurring within the transformer latent space during hierarchical synthesis. Utilizing a Local Pairwise Framework (mean step distance dˉxy​=0.0324), we identify a non-linear phase transition from near-Euclidean flatness into extreme hyperbolic regimes. This transition facilitates Geodesic Efficiency, allowing the model to navigate dense logical hierarchies without a collapse in semantic throughput.
-
-## Core Discoveries
-
-- Hyperbolic Phase Transition: Quantitative mapping of discrete Ollivier-Ricci curvature (κ) shifting from a near-flat baseline (κ≈−1.5) to deep hyperbolic states (κ≈−95.0) as logical gating density increases.
-
-- Geodesic Efficiency: Discovery of a stable, positively modulated velocity profile (r=0.5636). This refutes the "Syntactic Wall" hypothesis by demonstrating that hyperbolic warping serves as a structural optimization for informational transport.
-
-- Topological Separation: Clear causal separation between logical semantic gradients and stochastic null models, identifying hierarchical logic as a specific actuator for manifold warping.
-
-- Structural Isomorphism: Establishes a functional link between biological inhibitory gating (SST-interneurons) and symbolic manifold modulation in artificial architectures.
+* `hyperbolic_visualizer.py`: Generates a physical 2D projection of the attention manifold for specific heads using the Kamada-Kawai force-directed layout.
 
 ## Methodology
 
-Instead of global radial measurements which are prone to coordinate bias, this audit utilizes Incremental Concept Velocity (Vinc​) and local pairwise curvature. By measuring the geometric "torque" between adjacent logical states, we isolate the impact of hierarchical constraints on the manifold's intrinsic topology.
+To ensure absolute mathematical and topological integrity, the scripts enforce the following strict constraints:
+
+* Strictly Length-Matched Prompts: Both the baseline and logic prompts evaluate exactly 13 tokens after BPE tokenization to eliminate sequence-length confounders.
+
+* Sink Eradication: Index 0 is explicitly sliced from the attention matrices to prevent the "Star Graph" artifact caused by attention sink dumping.
+
+* True DAG Integrity: The graph is built as a strictly Directed Acyclic Graph (DAG). Self-loops are mathematically banned (j<i), and information flows strictly forward through time (Past → Present).
+
+* Distance Inversion: Attention probabilities are converted to geometric structural distances using wdist​=−log(p)+ϵ. A microscopic epsilon (1e-5) prevents zero-distance math crashes in the Forman-Ricci solver when attention becomes 100% deterministic.
 
 ## Installation & Usage
 
-Environment Setup:
+**Environment Setup:**
+```bash
+pip install torch numpy networkx matplotlib transformers GraphRicciCurvature
 ```
-pip install torch numpy POT pandas matplotlib scipy transformers tqdm
+Run the curvature scanner to map the structural phase transitions across all heads in Layer 8:
+```bash
+python hyperbolic_scanner.py
 ```
-Generate Experimental Data:
+**Note on Math Solver Stability:** 
+Depending on your hardware and NumPy backend, the `GraphRicciCurvature` solver can sometimes hang or crash due to OpenMP/MKL thread contention (multiple CPU cores fighting over the same matrix calculations). If you experience infinite hanging during the "Processing" steps, restrict the math libraries to a single thread before running:
+* **Windows (PowerShell):**
+```bash
+$env:OMP_NUM_THREADS="1"; $env:MKL_NUM_THREADS="1"; python hyperbolic_scanner.py
 ```
-python generate_experiment_plots.py
+* **Mac/Linux:**
+```bash
+OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python hyperbolic_scanner.py
 ```
 
-## Research Applications
+Run the visualizer to physically see the manifold hollow itself out to build sparse routing corridors:
+```bash
+python hyperbolic_visualizer.py
+```
+Note: To switch between visualizing the dense Euclidean baseline and the sparse Hyperbolic logic state, comment/uncomment the desired `PROMPT` string at the top of the script.
 
-- Mechanistic Interpretability: Visualizing how models "funnel" latent states into focused, high-curvature corridors during complex reasoning.
 
-- AI Safety & Hallucination Research: Identifying geometric precursors to logical failure, where the manifold fails to transition into a sufficiently deep hyperbolic state.
-
-- Neuromorphic Engineering: Applying Curvature Adaptation (CA) principles to energy-efficient hardware design.
