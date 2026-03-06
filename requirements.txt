@@ -1,8 +1,6 @@
 torch
 numpy
-POT
-pandas
+networkx
 matplotlib
-scipy
 transformers
-tqdm
+GraphRicciCurvature
